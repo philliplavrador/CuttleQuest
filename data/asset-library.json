@@ -1,0 +1,85 @@
+{
+  "slots": [
+    {
+      "id": "slot-egg-8d",
+      "label": "Egg",
+      "category": "avatar-8d",
+      "stage": "egg",
+      "assignedAssetId": null
+    },
+    {
+      "id": "slot-hatchling-8d",
+      "label": "Hatchling",
+      "category": "avatar-8d",
+      "stage": "hatchling",
+      "assignedAssetId": "inbox-cuttlefish-hatchling-swimming-sw"
+    },
+    {
+      "id": "slot-juvenile-8d",
+      "label": "Juvenile",
+      "category": "avatar-8d",
+      "stage": "juvenile",
+      "assignedAssetId": "inbox-avatar-juvenille-swimming-sw"
+    },
+    {
+      "id": "slot-adult-8d",
+      "label": "Adult",
+      "category": "avatar-8d",
+      "stage": "adult",
+      "assignedAssetId": null
+    },
+    {
+      "id": "slot-hatchling-swim-sw",
+      "label": "Hatchling",
+      "category": "swim-sw",
+      "stage": "hatchling",
+      "assignedAssetId": null
+    },
+    {
+      "id": "slot-juvenile-swim-sw",
+      "label": "Juvenile",
+      "category": "swim-sw",
+      "stage": "juvenile",
+      "assignedAssetId": null
+    },
+    {
+      "id": "slot-adult-swim-sw",
+      "label": "Adult",
+      "category": "swim-sw",
+      "stage": "adult",
+      "assignedAssetId": null
+    }
+  ],
+  "assets": [
+    {
+      "id": "inbox-avatar-juvenille-swimming-sw",
+      "name": "Avatar Juvenille Swimming Sw",
+      "status": "active",
+      "files": [
+        "/assets/preview/inbox/avatar-juvenille-swimming-sw.gif"
+      ],
+      "thumbnail": "/assets/preview/inbox/avatar-juvenille-swimming-sw.gif",
+      "createdAt": "2026-03-27"
+    },
+    {
+      "id": "inbox-cuttlefish-hatchling-8d",
+      "name": "Cuttlefish Hatchling 8d",
+      "status": "storage",
+      "files": [
+        "/assets/preview/inbox/cuttlefish-hatchling-8d.gif"
+      ],
+      "thumbnail": "/assets/preview/inbox/cuttlefish-hatchling-8d.gif",
+      "createdAt": "2026-03-27"
+    },
+    {
+      "id": "inbox-cuttlefish-hatchling-swimming-sw",
+      "name": "Cuttlefish Hatchling Swimming Sw",
+      "status": "active",
+      "files": [
+        "/assets/preview/inbox/cuttlefish-hatchling-swimming-sw.gif"
+      ],
+      "thumbnail": "/assets/preview/inbox/cuttlefish-hatchling-swimming-sw.gif",
+      "createdAt": "2026-03-27"
+    }
+  ]
+}
