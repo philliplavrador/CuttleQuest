@@ -43,3 +43,6 @@ config/credentials.ts
 
 # Claude Code local settings
 .claude/
+
+# User's personal asset staging area
+assets_inbox/
