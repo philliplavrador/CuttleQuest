@@ -35,6 +35,7 @@ function generateGuestId(): string {
 }
 
 export function createDefaultProfile(uid?: string, isGuest = true): PlayerProfile {
+  const isProd = process.env.NODE_ENV === 'production';
   return {
     uid: uid || generateGuestId(),
     isGuest,
@@ -42,7 +43,7 @@ export function createDefaultProfile(uid?: string, isGuest = true): PlayerProfil
     photoURL: null,
 
     currentStage: 'egg',
-    currentScene: 'egg_habitat',
+    currentScene: isProd ? 'egg_tend' : 'egg_habitat',
     completedScenes: [],
 
     bestStarRatings: {},
