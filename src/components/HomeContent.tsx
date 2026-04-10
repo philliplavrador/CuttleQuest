@@ -39,7 +39,8 @@ const STAGE_EMOJI: Record<string, string> = {
 
 export default function HomeContent() {
   const router = useRouter();
-  const { profile, isMockMode, signInWithGoogle, enterTestMode } = useProfile();
+  const { profile } = useProfile();
+  const isDevMode = process.env.NODE_ENV !== 'production';
   const [showStats, setShowStats] = useState(false);
 
   const unviewedCodex = profile.unlockedCodexEntries.filter(
@@ -59,8 +60,8 @@ export default function HomeContent() {
       <div className="flex items-center justify-between p-4 relative z-10">
         <div>
           <h1 className="font-pixel text-xl home-title">CuttleQuest</h1>
-          {isMockMode && (
-            <span className="font-pixel text-[10px] text-pink-300 mt-1 block">TEST MODE</span>
+          {isDevMode && (
+            <span className="font-pixel text-[10px] text-pink-300 mt-1 block">DEV MODE</span>
           )}
         </div>
 
@@ -79,29 +80,7 @@ export default function HomeContent() {
           {/* Mute */}
           <MuteButton />
 
-          {/* Auth */}
-          {profile.isGuest ? (
-            <button
-              onClick={() => {
-                sfxTap();
-                if (isMockMode) enterTestMode();
-                else signInWithGoogle();
-              }}
-              className="font-pixel text-[9px] glass-btn px-4 py-2.5 text-purple-200"
-            >
-              {isMockMode ? 'Test User' : 'Save?'}
-            </button>
-          ) : (
-            <div className="flex items-center">
-              {profile.photoURL ? (
-                <img src={profile.photoURL} alt="" className="w-10 h-10 rounded-full border-2 border-purple-400" />
-              ) : (
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center font-pixel text-[10px] text-white">
-                  {profile.displayName[0] || 'P'}
-                </div>
-              )}
-            </div>
-          )}
+          {/* Auth button temporarily disabled — sign-in is turned off for now. */}
         </div>
       </div>
 
@@ -141,7 +120,7 @@ export default function HomeContent() {
           {showStats ? 'hide stats ▲' : 'stats ▼'}
         </button>
 
-        {isMockMode && (
+        {isDevMode && (
           <div className="flex gap-4 mt-2">
             <button
               onClick={() => { sfxTap(); router.push('/admin'); }}

@@ -2,6 +2,10 @@ import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, Auth } from 'firebase/auth';
 import { getFirestore, Firestore } from 'firebase/firestore';
 
+// TEMPORARILY DISABLED: Google sign-in + Firestore cloud sync are turned off.
+// Flip this to false to re-enable the full Firebase integration.
+const GOOGLE_AUTH_DISABLED = true;
+
 let app: FirebaseApp | null = null;
 let auth: Auth | null = null;
 let db: Firestore | null = null;
@@ -32,6 +36,11 @@ function loadCredentials() {
 }
 
 export function initFirebase() {
+  if (GOOGLE_AUTH_DISABLED) {
+    isMockMode = true;
+    return;
+  }
+
   const config = loadCredentials();
 
   if (!config) {

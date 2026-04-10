@@ -24,7 +24,7 @@ const RARITY_COLORS: Record<string, string> = {
 };
 
 function WardrobeContent() {
-  const { profile, equipCosmetic, isMockMode, signInWithGoogle } = useProfile();
+  const { profile, equipCosmetic } = useProfile();
   const [activeSlot, setActiveSlot] = useState<SlotType | null>(null);
   const [showShareModal, setShowShareModal] = useState(false);
   const shareCardRef = useRef<HTMLDivElement>(null);
@@ -224,11 +224,6 @@ function WardrobeContent() {
               </button>
             </div>
 
-            {profile.isGuest && (
-              <p className="font-pixel text-[7px] text-text-muted text-center mt-3">
-                Sign in to save your outfit permanently
-              </p>
-            )}
           </div>
         </div>
       )}

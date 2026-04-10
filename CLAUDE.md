@@ -1,5 +1,14 @@
 # CLAUDE.md — CuttleQuest
 
+## Permissions & Workflow
+- **Auto-run**: All read operations, bash commands, searches, file navigation, tests, installs, builds, and dev servers. Just do it.
+- **Ask me first**: File edits/writes, architectural or design decisions, and anything involving `git push`, `git commit`, or `git add`.
+- **Never run**: `sudo` commands, `rm -rf /`, or anything destructive to system-level resources.
+- When exploring code, grep/search/read freely without asking.
+- When you have a plan that involves editing files, present the plan first and wait for approval before making changes.
+- After making edits, run any relevant linters/tests automatically to verify your changes.
+- Do not push to GitHub without explicit approval. Stage and commit only when asked.
+
 ## Project
 CuttleQuest is a cuttlefish life cycle simulator built with Next.js 14 (App Router), TypeScript, and Tailwind CSS. Players guide a cuttlefish from egg to adulthood through 12 interactive scenes across 4 life stages (Egg, Hatchling, Juvenile, Adult). Canvas-based animations, glassmorphism UI, custom cursor.
 
@@ -92,7 +101,7 @@ When a scene grows beyond ~300 lines, split it:
 - After making changes, summarize in 1-2 sentences max
 
 ### Prefer real assets over CSS placeholders
-When building or modifying UI/scenes, prefer using real image/sprite assets over CSS-drawn shapes (gradients, border-radius hacks, etc.) whenever it improves the visual quality. If a suitable asset already exists in `public/assets/` or is listed in `ASSETS.md`, use it. If no suitable asset is available, search online for free game art packs (itch.io, opengameart.org, kenney.nl) and suggest downloads to the user — include the URL, license, and where to extract it.
+When building or modifying UI/scenes, prefer using real image/sprite assets over CSS-drawn shapes (gradients, border-radius hacks, etc.) whenever it improves the visual quality. If a suitable asset already exists in `public/assets/` or is listed in `docs/ASSETS.md`, use it. If no suitable asset is available, search online for free game art packs (itch.io, opengameart.org, kenney.nl) and suggest downloads to the user — include the URL, license, and where to extract it.
 
 ### Game design conventions
 - Scenes are not timed unless explicitly stated — no pause button needed for decision scenes
@@ -103,8 +112,8 @@ When building or modifying UI/scenes, prefer using real image/sprite assets over
 
 ### Parallel development coordination
 Multiple Claude conversations may work on different scenes simultaneously. Before starting work:
-1. Read `CLAUDE_STATUS.md` to check what other conversations are working on
-2. Add your work to the "Active Work" table in `CLAUDE_STATUS.md`
+1. Read `docs/CLAUDE_STATUS.md` to check what other conversations are working on
+2. Add your work to the "Active Work" table in `docs/CLAUDE_STATUS.md`
 3. When done, move it to "Recently Completed" and remove from Active Work
 4. If you modify a shared file (`sceneManifest.ts`, `sceneComponents.ts`, `play/page.tsx`, `playerProfile.ts`), log it under "Shared File Changes"
 5. Never modify files listed as being actively edited by another conversation
