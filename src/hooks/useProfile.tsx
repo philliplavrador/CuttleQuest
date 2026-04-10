@@ -35,7 +35,24 @@ interface ProfileContextType {
 const ProfileContext = createContext<ProfileContextType | null>(null);
 
 export function ProfileProvider({ children }: { children: ReactNode }) {
-  const [profile, setProfile] = useState<PlayerProfile>(() => loadProfileFromLocal() || createDefaultProfile());
+  const [profile, setProfile] = useState<PlayerProfile>(() => {
+    const loaded = loadProfileFromLocal();
+    if (!loaded) return createDefaultProfile();
+
+    // Migrate stale profiles: if a player hasn't actually started yet
+    // (no completed scenes) and is sitting on the old default scene,
+    // bump them to whatever createDefaultProfile currently returns.
+    // This catches anyone whose localStorage was seeded before the
+    // production default was changed to egg_tend.
+    if (loaded.completedScenes.length === 0) {
+      const fresh = createDefaultProfile(loaded.uid, loaded.isGuest);
+      if (loaded.currentScene !== fresh.currentScene) {
+        return { ...loaded, currentStage: fresh.currentStage, currentScene: fresh.currentScene };
+      }
+    }
+
+    return loaded;
+  });
   const [isMock, setIsMock] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
