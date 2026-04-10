@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 130" width="150" height="130">
+  <defs>
+    <radialGradient id="eggGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#fce4f0"/>
+      <stop offset="50%" stop-color="#f0c0d8"/>
+      <stop offset="100%" stop-color="#d898b8"/>
+    </radialGradient>
+    <radialGradient id="eggInner" cx="50%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#f8d8e8"/>
+      <stop offset="100%" stop-color="#e0a8c8"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Main egg shape -->
+  <ellipse cx="75" cy="65" rx="28" ry="36" fill="url(#eggGlow)" stroke="#c880a8" stroke-width="1.5"/>
+
+  <!-- Inner translucent glow (embryo hint) -->
+  <ellipse cx="75" cy="67" rx="18" ry="22" fill="url(#eggInner)" opacity="0.3"/>
+
+  <!-- Speckle pattern -->
+  <g fill="#b070a0" opacity="0.15">
+    <circle cx="85" cy="50" r="2.2"/>
+    <circle cx="63" cy="55" r="2.2"/>
+    <circle cx="80" cy="80" r="2.2"/>
+    <circle cx="67" cy="83" r="2.2"/>
+    <circle cx="90" cy="70" r="2.2"/>
+    <circle cx="60" cy="65" r="2.2"/>
+  </g>
+
+  <!-- Highlight shine -->
+  <ellipse cx="67" cy="47" rx="6" ry="4" transform="rotate(-23 67 47)" fill="rgba(255,255,255,0.25)"/>
+</svg>
